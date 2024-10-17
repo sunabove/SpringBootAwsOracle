@@ -3,7 +3,10 @@
 
 # User-specific stuff
 .gradle/**
-build/**
+#build/**
+build/resources/**
+build/tmp/**
+
 lib/**
 
 **.class
