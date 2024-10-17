@@ -16,8 +16,9 @@ public class CustomerController {
 
     @GetMapping("/")
     @Transactional
-    public String index(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
-        model.addAttribute("name", name );
+    public String index(Model model,
+                        @RequestParam(name="firstName", required=false, defaultValue="") String firstName,
+                        @RequestParam(name="lastName", required=false, defaultValue="") String lastName ) {
 
         List<Customer> customers = customerRepository.findAll();
 
@@ -29,9 +30,18 @@ public class CustomerController {
             customers = customerRepository.findAll();
         }
 
+        if( null != firstName && !firstName.trim().isEmpty()) {
+            Customer customer = new Customer( firstName, lastName );
+            customerRepository.save( customer );
+
+            customers = customerRepository.findAll();
+        }
+
         for( Customer customer : customers ) {
             System.out.println( "Customer = " + customer );
         }
+
+        model.addAttribute("customers", customers);
 
         return "index";
     }

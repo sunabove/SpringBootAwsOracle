@@ -5,6 +5,25 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 </head>
 <body>
-<p th:text="|Hello, ${name}!|"/>
+
+<table>
+    <tr
+            th:each="customer, iStat : ${customers}"
+            th:style="${iStat.odd}? 'font-weight: bold;'"
+            th:alt-title="${iStat.even}? 'even' : 'odd'">
+        <td th:text="${customer.id}" />
+        <td th:text="${customer.firstName}" />
+        <td th:text="${customer.lastName}" />
+    </tr>
+</table>
+
+<br/>
+
+<form action="/" method="get">
+    FirstName : <input type="text" name="firstName"/>
+    LastName : <input type="text" name="lastName"/>
+    <input type="submit" value="Submit"/>
+</form>
+
 </body>
 </html>
