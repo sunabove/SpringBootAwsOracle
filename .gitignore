@@ -3,6 +3,9 @@
 
 # User-specific stuff
 .gradle/**
+.build/**
+
+**.class
 
 .idea/**/workspace.xml
 .idea/**/tasks.xml
