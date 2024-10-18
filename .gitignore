@@ -4,7 +4,9 @@
 # User-specific stuff
 .gradle/**
 #build/**
+build/test-results/**
 build/resources/**
+build/reports/**
 build/tmp/**
 
 lib/**
