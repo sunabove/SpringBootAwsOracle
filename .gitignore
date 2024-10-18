@@ -6,8 +6,10 @@
 #build/**
 build/test-results/**
 build/resources/**
+build/resolvedMainClassName
 build/reports/**
 build/tmp/**
+build/libs/**-plain.jar
 
 lib/**
 
